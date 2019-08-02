@@ -1,0 +1,22 @@
+{% import 'bootstrap/wtf.html' as wtf %}
+{% extends 'base.html' %}
+
+
+{% block app_content %}
+  <div class="row">
+    <div class="col-md-4 offset-md-4">
+      <h1>{{ title }}</h1>
+    </div>
+  </div> <!-- ends row for title-->
+
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <h5>These are the vehicles we have in stock:</h5>
+      <br>
+      {% for car in cars %}
+      <p>{{ car.vin }}</p>
+      {% endfor %}
+    </div>
+  </div> <!-- ends row for form-->
+
+{% endblock %}

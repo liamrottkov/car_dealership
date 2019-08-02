@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+
+{% block app_content %}
+  <div class="row">
+    <div class="col-md-12 center">
+      {% if header != '' %}
+        <h1>{{ header }}</h1>
+      {% else %}
+        <h1>{{ title }}</h1>
+      {% endif %}
+    </div>
+  </div> <!--ends row for title-->
+
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="center">Welcome to our website!</h1>
+    </div>
+  </div> <!-- ends row for banner -->
+
+  <!-- loop through products and add each card -->
+  {% for product in products %}
+    {% if loop.index == 1 or loop.index % 3 == 1 %}
+      <div class="row">
+    {% endif %}
+      <div class="col-md-4">
+        <div class="card">
+          <img src="{{ product.url }}" alt="Placeholder" class="card-img project">
+          <div class="card-title center">{{ product.title }}</div>
+        </div> <!--ends card-->
+      </div> <!-- ends col 4 for card-->
+    {% if loop.index % 3 == 0 %}
+      </div> <!-- ends row for cards -->
+    {% endif %}
+  {% endfor %}
+
+
+
+
+{% endblock %}
